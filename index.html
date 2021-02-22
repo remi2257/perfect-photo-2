@@ -1,0 +1,192 @@
+<head>
+    <title>
+        Perfect Photo Size
+    </title>
+
+    {# -- Icon -- #}
+    <link rel="icon" href="static/logos/favicon.ico"/>
+
+    {# --- CSS --- #}
+    <link rel="stylesheet" href="static/css/main.css"/>
+</head>
+
+{# --- Body --- #}
+
+<body>
+<header class="header">
+    <div class="logo">
+        <img class="logo__img" src="static/logos/logo_v1.png" alt="logo">
+        <div class="logo__titles">
+            <h1>Perfect Photo Size</h1>
+            <h2>Make your photos fit everywhere</h2>
+            {# <h2>Your Photos, for everywhere</h2>#}
+            {# <h2>Your Photos, everywhere</h2>#}
+        </div>
+    </div>
+    <nav class="nav">
+    </nav>
+</header>
+
+<section class="description_section">
+    <div class="description">
+        <div class="description__text">
+            <h1>But what is it ?</h1>
+
+            <p>
+                Perfect Photo Size is an online photo editor that allows you to edit your photos
+                to match the sizes expected on social networks such as Facebook & LinkedIn or on
+                applications such as Discord.
+                <br>
+                The goal is to prevent these websites from degrading your photos
+                by cropping them when they appear in the news feed.
+            </p>
+
+            <h1>How does it work ?</h1>
+
+            <p>
+                Perfect Photo Size will transform your image so that its ratio
+                matches the standards of the sites that will host your photo.
+                Unlike modifications such as cropping or resizing, Perfect Photo Size
+                preserves the soul of your image by removing the areas of your image
+                that are the least eye-catching.
+            </p>
+        </div>
+
+        <div class="description__images">
+            <img src="static/images/description_illus.png" alt="Description Image 1">
+            <img src="static/images/description_illus_2.png" alt="Description Image 2">
+        </div>
+
+    </div>
+</section>
+
+<section class="playground">
+
+    <div class="playground__before_drop" id="region_before_drop">
+        <div class="txt drop_region" id="drop_region_playground">
+            <p>Drag and Drop your image here for upload or click here to open files browser</p>
+        </div>
+
+        <div class="image_examples_picker">
+            <p class="txt">Pick one example image by clicking on it</p>
+            <div class="images_examples">
+                <img class="img_example" src="static/images/pietro_de_grandi_unsplash.jpg" alt="">
+                <img class="img_example" src="static/images/brent_cox_unsplash.jpg" alt="">
+                <img class="img_example" src="static/images/winter_750w.jpg" alt="">
+            </div>
+        </div>
+    </div>
+
+    <div class="playground__after_drop" id="region_after_drop">
+        <div class="playground__input_image" id="input_image">
+
+        </div>
+        <div class="option_selector" id="option_selector">
+
+            <p class="txt">Pick a Size !</p>
+
+            <select class="option_selector__dropdown" id="size_picker">
+                <option value="none" selected>Select ...</option>
+                <option value="facebook_profile">Facebook - Profile Picture</option>
+                <option value="facebook_cover">Facebook - Cover Picture</option>
+                <option value="twitter_profile">Twitter - Profile Picture</option>
+                <option value="twitter_cover">Twitter - Cover Picture</option>
+                <option value="linkedin_profile">LinkedIn - Profile Picture</option>
+                <option value="linkedin_cover">LinkedIn - Cover Picture</option>
+                <option value="discord">Discord</option>
+                <option value="custom">Custom</option>
+            </select>
+
+            <div id="target_ratio">
+            </div>
+
+            <div class="txt txt--clickable txt--hidden" id="x_minus_button">
+                X -
+            </div>
+            <div class="txt txt--clickable txt--hidden" id="y_minus_button">
+                Y -
+            </div>
+
+            <div class="txt txt--clickable txt--hidden" id="process_button">
+                Process !
+            </div>
+
+
+        </div>
+
+        <div class="playground__output" id="output_image">
+            <canvas class="output__canvas" id="canvas_draw"></canvas>
+            <div class="output__btn_div">
+                <div class="txt txt--clickable" id="original_button">
+                    Original
+                </div>
+                <div class="txt txt--clickable" id="gray_button">
+                    Gray
+                </div>
+                <div class="txt txt--clickable" id="energy_button">
+                    Energy
+                </div>
+                <div class="txt txt--clickable" id="color_col_button">
+                    Col
+                </div>
+                <div class="txt txt--clickable" id="color_row_button">
+                    Row
+                </div>
+            </div>
+            <div class="txt txt--clickable" id="download_button">
+                Download
+            </div>
+        </div>
+    </div>
+
+</section>
+
+<footer class="footer">
+    <div class="about">
+        <h2>About the author</h2>
+        <p>
+            French engineer specialized in image processing, I like
+            to be involved in many projects involving new technologies.
+        </p>
+        <div class="about__icons">
+            <a id="github_ref" href="https://github.com/remi2257" target="_blank">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                    <circle class="colored_white" cx="12" cy="12" r="11" fill="transparent"/>
+                    <path
+                            d="m12.005988,0.261283c-6.63026,0 -12.005988,5.375728 -12.005988,12.005988c0,5.30538 3.439715,9.804694 8.210876,11.3919c0.600159,0.10993 0.819268,-0.260872 0.819268,-0.577436c0,-0.285799 -0.010998,-1.232537 -0.01686,-2.23499c-3.338579,0.725448 -4.044259,-1.415745 -4.044259,-1.415745c-0.546648,-1.386434 -1.332946,-1.755758 -1.332946,-1.755758c-1.091114,-0.744512 0.082776,-0.729856 0.082776,-0.729856c1.205429,0.083526 1.840058,1.236945 1.840058,1.236945c1.071347,1.834899 2.810972,1.304361 3.49393,0.996591c0.109133,-0.773823 0.419834,-1.304361 0.762099,-1.603339c-2.665142,-0.303362 -5.468774,-1.333673 -5.468774,-5.934123c0,-1.311701 0.468257,-2.381547 1.234741,-3.22206c-0.122381,-0.30484 -0.535673,-1.526402 0.1187,-3.17882c0,0 1.006862,-0.322426 3.301928,1.231083c0.957009,-0.267462 1.983661,-0.399363 3.004428,-0.403772c1.02004,0.004408 2.047396,0.137764 3.005905,0.405226c2.290705,-1.554963 3.29902,-1.231083 3.29902,-1.231083c0.656577,1.653895 0.243285,2.87398 0.120177,3.177366c0.769415,0.840513 1.234014,1.910382 1.234014,3.22206c0,4.612175 -2.808041,5.627807 -5.482703,5.92533c0.432356,0.372256 0.81486,1.102112 0.81486,2.221811c0,1.604816 -0.016133,2.898907 -0.016133,3.294612c0,0.319495 0.218359,0.693205 0.826584,0.575959c4.767526,-1.590137 8.204287,-6.089451 8.204287,-11.3919c0,-6.63026 -5.375728,-12.005988 -12.005988,-12.005988z"/>
+                </svg>
+                remi2257
+            </a>
+            <a id="linkedin_ref" href="https://www.linkedin.com/in/remi-lux" target="_blank">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                    <rect class="colored_white" x="1" y="1" rx="4" ry="4" width="22" height="22"
+                          fill="transparent"/>
+                    <path class="colored_blue_linkedin"
+                          d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
+                </svg>
+                Rémi Lux
+            </a>
+            <a id="mail_ref" href="mailto: remiluxpc@gmail.com ? subject = Contact">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                    <rect class="colored_white" x="1" y="4" rx="2" ry="2" width="22" height="16"
+                          fill="transparent"/>
+                    <path class="colored_red"
+                          d="M22.288 21h-20.576c-.945 0-1.712-.767-1.712-1.712v-13.576c0-.945.767-1.712 1.712-1.712h20.576c.945 0 1.712.767 1.712 1.712v13.576c0 .945-.767 1.712-1.712 1.712zm-10.288-6.086l-9.342-6.483-.02 11.569h18.684v-11.569l-9.322 6.483zm8.869-9.914h-17.789l8.92 6.229s6.252-4.406 8.869-6.229z"/>
+                </svg>
+                remiluxpc@gmail.com
+            </a>
+        </div>
+    </div>
+    <div class="footer__copyright">
+        <p>© 2021 Rémi Lux</p>
+    </div>
+
+
+</footer>
+
+</body>
+
+
+{# --- JavaScript ---#}
+
+<script type="module" src="static/js/index.js"></script>

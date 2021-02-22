@@ -1,0 +1,277 @@
+@import "./base";
+
+@import "./utils";
+@import "./animations";
+
+@import "./components";
+
+/* General Purpose */
+
+body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  font-family: 'Open Sans', sans-serif;
+
+  color: $color-body;
+}
+
+/* Header stuff */
+
+.header {
+  font-family: 'Montserrat', sans-serif;
+
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  margin-bottom: 2rem;
+
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.2);
+
+  position: absolute;
+  z-index: 99;
+
+  .logo {
+    display: flex;
+    justify-content: flex-start;
+    padding: 20px 50px;
+
+    @include tablet-only {
+      padding: 20px 20px;
+    }
+
+    &__img {
+      margin: 10px 20px 10px 0;
+      width: 64px;
+    }
+
+    &__titles {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+
+      > * {
+        margin: 0;
+      }
+
+      > h1 {
+        font-size: 2.2em;
+      }
+
+      > h2 {
+        font-size: 1.4em;
+      }
+
+      @include tablet-only {
+        h2 {
+          display: none;
+        }
+      }
+    }
+  }
+
+  .nav {
+    display: none;
+
+    > ul {
+      list-style-type: none;
+      display: flex;
+    }
+
+    &__link {
+      margin: 5px;
+    }
+  }
+}
+
+/* Description */
+
+.description_section {
+  background-color: rgba(165, 165, 110, 0.5);
+  padding-bottom: 200px;
+  margin-bottom: 50px;
+
+}
+
+.description {
+  position: relative;
+  top: 150px;
+
+  font-size: 1.2rem;
+  text-align: justify;
+
+  padding: 10px 20px;
+
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  flex-wrap: wrap;
+
+  &__text {
+    max-width: 500px;
+  }
+
+  &__images {
+    width: 1000px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+
+    @include small-desktop-only {
+      width: 800px;
+    }
+    @include tablet-only {
+      width: 600px;
+    }
+    @include mobile-only {
+      width: 450px;
+    }
+  }
+}
+
+/* Playground */
+
+.playground__before_drop {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+
+  margin: 50px 20px;
+  padding: 30px;
+
+  .images_examples {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: center;
+
+    .img_example {
+      padding: 20px;
+      width: 300px;
+
+      &:hover {
+        cursor: pointer;
+      }
+    }
+  }
+}
+
+.playground__after_drop {
+  display: none;
+  flex-direction: row;
+  justify-content: space-around;
+
+  margin: 50px 20px;
+  padding: 30px;
+
+  &__input_image > img {
+    width: 500px;
+  }
+
+  &__output {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    > canvas {
+      width: 500px;
+    }
+  }
+
+}
+
+@keyframes shaking_button {
+  25% {
+    transform: rotate($shake-deg);
+  }
+  75% {
+    transform: rotate(-$shake-deg);
+  }
+}
+
+.option_selector {
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  padding: 10px;
+}
+
+.output__btn_div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 1rem 0.5rem;
+}
+
+/* Footer */
+
+.footer {
+  display: flex;
+  justify-content: space-between;
+
+  padding: 15px 20px 40px 20px;
+
+  color: #ffbe96;
+
+  background-color: rgba(0, 0, 0, 0.8);
+
+}
+
+.about {
+  h2 {
+    margin: 0
+  }
+
+  p {
+    max-width: 500px;
+  }
+
+  &__icons {
+    a {
+      display: flex;
+      align-items: center;
+
+      width: fit-content;
+
+      text-decoration: none;
+      color: #ffbe96;
+
+      svg {
+        padding: 5px 15px;
+        width: 32px;
+        height: 32px;
+      }
+
+      circle, rect, path {
+        transition: 300ms;
+        transition-timing-function: ease-in-out;
+      }
+
+      .colored_white {
+        transition-delay: 100ms;
+      }
+
+      &:hover {
+        color: #ff9e53;
+
+        .colored_white {
+          fill: white;
+        }
+
+        .colored_blue_linkedin {
+          fill: #0e76a8;
+        }
+
+        .colored_red {
+          fill: red;
+        }
+
+      }
+    }
+
+  }
+}
