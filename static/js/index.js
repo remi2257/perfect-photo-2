@@ -80,6 +80,7 @@ const color_col_button = document.getElementById('color_col_button');
 const color_row_button = document.getElementById('color_row_button');
 
 const download_button = document.getElementById('download_button');
+const process_another_button = document.getElementById('process_another_button');
 
 
 // ------ Drag And Drop
@@ -115,11 +116,6 @@ function storeAndDisplayImage(image) {
     }
 
     reader.readAsDataURL(image);
-
-    // Hide Drop region & make appear result regions
-    regionBeforeDrop.style.display = 'none';
-    regionAfterDrop.style.display = 'flex';
-
 }
 
 // -- Examples images
@@ -136,9 +132,6 @@ function handleSelectExampleImage(e) {
     inputImage.src = e.target.src;
     waitForImageInputLoad().then(initResultImage)
 
-    // Hide Drop region & make appear result regions
-    regionBeforeDrop.style.display = 'none';
-    regionAfterDrop.style.display = 'flex';
 }
 
 async function waitForImageInputLoad() {
@@ -162,6 +155,10 @@ function initResultImage() {
     // Convert image to buffer !
     const imgData = ctx.getImageData(0, 0, output_width, output_height)
     pixelsBuffer = Uint8ClampedArray.from(imgData.data.slice())
+
+    // Hide Drop region & make appear result regions
+    regionBeforeDrop.style.display = 'none';
+    regionAfterDrop.style.display = 'flex';
 }
 
 // --------- End of Drag & Drop
@@ -277,6 +274,7 @@ color_col_button.addEventListener("click", changeImageToColorCol);
 color_row_button.addEventListener("click", changeImageToColorRow);
 
 download_button.addEventListener("click", downloadImage);
+process_another_button.addEventListener("click", resetPlayground);
 
 // -- Callbacks definition
 
@@ -386,6 +384,13 @@ function downloadImage(_event){
     document.body.appendChild(a)
     a.click()
     document.body.removeChild(a)
+}
+
+function resetPlayground(_event){
+    // Hide Drop region & make appear result regions
+    regionAfterDrop.style.display = 'none';
+    regionBeforeDrop.style.display = 'flex';
+    inputImageRegion.removeChild(inputImage);
 }
 
 // -- Methods
